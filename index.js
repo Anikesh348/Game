@@ -86,8 +86,16 @@ var userClickedPattern = [];
 
 var started = false;
 var level = 0;
+$(document).on("tap",function() {
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    $("p").text("Click the blinking blocks to advance to further levels!!");
+    nextSequence();
+    started = true;
+  }
+});
 
-$(document).keypress(function() {
+$(document).keydown(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     $("p").text("Click the blinking blocks to advance to further levels!!");
